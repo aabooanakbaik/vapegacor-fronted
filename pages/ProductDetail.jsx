@@ -40,8 +40,7 @@ export default function ProductDetail() {
 
   const { data: product, isLoading } = useQuery({
     queryKey: ['product', id],
-    queryFn: () => base44.entities.Product.filter({ id }),
-    select: data => data[0],
+    queryFn: () => base44.entities.Product.get(id),
   });
 
   const { data: variants = [] } = useQuery({
